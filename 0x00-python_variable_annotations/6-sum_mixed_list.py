@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """complex types - list with mixed types"""
 from typing import List, Union
 
