@@ -4,4 +4,6 @@ from typing import Union, Tuple
 
 
 def to_kv(k: str, v: Union[int, float]) -> Tuple[str, float]:
-    return tuple[k, float(v ** 2)]
+    """a function that takes in complex types"""
+    
+    return (k, float(v ** 2))
