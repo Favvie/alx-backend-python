@@ -27,7 +27,7 @@ def access_nested_map(nested_map: Mapping, path: Sequence) -> Any:
     path: Sequence
         a sequence of key representing a path to the value
     Example
-    -------
+    -------qw23
     >>> nested_map = {"a": {"b": {"c": 1}}}
     >>> access_nested_map(nested_map, ["a", "b", "c"])
     1
