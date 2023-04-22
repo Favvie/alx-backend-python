@@ -2,6 +2,7 @@
 """test utils.py file"""
 
 
+import requests
 import unittest
 from parameterized import parameterized
 access_nested_map = __import__('utils').access_nested_map
@@ -75,7 +76,9 @@ class TestGetJson(unittest.TestCase):
         test_payload: dict
         expected url response
         """
-        mock_get_json.return_value.json.return_value = test_payload
+        mock_response = requests.Response()
+        mock_response.json = lambda: test_payload
+        mock_get_json.return_value = mock_response
         response = get_json(test_url)
 
         mock_get_json.assert_called_once_with(test_url)
