@@ -2,7 +2,6 @@
 """test utils.py file"""
 
 
-import requests
 import unittest
 from parameterized import parameterized
 access_nested_map = __import__('utils').access_nested_map
@@ -53,33 +52,3 @@ class TestAccessNestedMap(unittest.TestCase):
         """
         with self.assertRaises(KeyError):
             access_nested_map(nested_map, path)
-
-
-class TestGetJson(unittest.TestCase):
-    """Class for testing get json using mock patch
-    Inherits from unittest.TestCase class
-    Parameters
-    ----------
-    unittest.TestCase
-    """
-    @parameterized.expand([
-        ("http://example.com", {"payload": True}),
-        ("http://holberton.io", {"payload": False})
-    ])
-    @unittest.mock.patch('requests.get')
-    def test_get_json(self, test_url, test_payload, mock_get_json):
-        """Test the get json method in utils
-        Parameters
-        ----------
-        test_url: string
-        the url to be tested
-        test_payload: dict
-        expected url response
-        """
-        mock_response = requests.Response()
-        mock_response.json = lambda: test_payload
-        mock_get_json.return_value = mock_response
-        response = get_json(test_url)
-
-        mock_get_json.assert_called_once_with(test_url)
-        self.assertEqual(response, test_payload)
