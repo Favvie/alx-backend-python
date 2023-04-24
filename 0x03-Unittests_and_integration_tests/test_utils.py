@@ -81,26 +81,17 @@ class TestGetJson(unittest.TestCase):
 
 
 class TestMemoize(unittest.TestCase):
-    """Test Class for memoization method
-    Inherits from unittest.TestCase class
-    Parameters
-    ----------
-    unittest.TestCase
-    """
+    """Test suite for memoized method"""
     def test_memoize(self):
-        """Test the memoize method in utils
-        """
+        """method to test the actual memoization"""
         class TestClass:
-            """test class"""
+
             def a_method(self):
-                """return an int"""
                 return 42
 
             @memoize
             def a_property(self):
-                """return a function"""
                 return self.a_method()
-                pass
 
         with patch.object(TestClass, 'a_method') as mock_method:
             test_class = TestClass()
