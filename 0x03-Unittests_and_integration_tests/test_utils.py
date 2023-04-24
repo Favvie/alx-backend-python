@@ -52,3 +52,22 @@ class TestAccessNestedMap(unittest.TestCase):
         """
         with self.assertRaises(KeyError):
             access_nested_map(nested_map, path)
+
+
+class TestGetJson(unittest.TestCase):
+    """Class for testing get json using mock patch
+    Inherits from unittest.TestCase class
+    Parameters
+    ----------
+    unittest.TestCase
+    """
+    def test_get_json(self):
+        """Test the get json method in utils
+        Parameters
+        ----------
+        test_url: string
+        the url to be tested
+        test_payload: dict
+        expected url response
+        """
+        pass
